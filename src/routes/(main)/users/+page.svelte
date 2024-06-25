@@ -81,7 +81,7 @@
 				inputs: inputs,
 				search_queries: ['a.username|a.phone'],
 				model: 'User',
-				preloads: ['rank'],
+				preloads: [],
 				customCols: [
 					{
 						title: 'General',
@@ -90,15 +90,6 @@
 							'username',
 							'fullname',
 
-							{
-								label: 'rank_id',
-								selection: 'Rank',
-								customCols: null,
-								search_queries: ['a.name'],
-								newData: 'name',
-								title_key: 'name'
-							},
-							{ label: 'is_stockist', boolean: true }
 						]
 					},
 					{
@@ -106,7 +97,6 @@
 						list: [
 							'phone',
 							'email',
-							'rank_name',
 							'ic_no',
 							{ label: 'password', expose: true },
 							'bank_account_holder',
@@ -117,27 +107,12 @@
 				],
 				columns: [
 					{ label: 'ID', data: 'id' },
-					{
-						label: 'Stockist?',
-						data: 'is_stockist',
-						isBadge: true,
-						color: [
-							{
-								key: false,
-								value: 'yellow'
-							},
-
-							{
-								key: true,
-								value: 'green'
-							}
-						]
-					},
+					
 
 					{ label: 'Username', data: 'username' },
 					{ label: 'Phone/Email', data: 'phone', subtitle: { data: 'email' } },
 
-					{ label: 'Rank', data: 'name', through: ['rank'] }
+		
 				]
 			}}
 		/>
