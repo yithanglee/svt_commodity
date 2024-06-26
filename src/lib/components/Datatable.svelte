@@ -226,7 +226,7 @@
 	<TableHead>
 		{#each columns as col}
 			{#if col.className != null}
-				<TableHeadCell class="{col.className}">{col.label}</TableHeadCell>
+				<TableHeadCell class={col.className}>{col.label}</TableHeadCell>
 			{:else}
 				<TableHeadCell>{col.label}</TableHeadCell>
 			{/if}
@@ -311,18 +311,23 @@
 			Are you sure you want to delete?
 		{/if}
 	</p>
-	<svelte:fragment slot="footer">
-		<Button
-			color="red"
-			on:click={() => {
-				if (modalFn != null) {
-					modalFn();
-					modalMessage = null;
-					modalFn = null;
-				} else {
-					confirmDelete(selectedId);
-				}
-			}}>Confirm</Button
-		>
+
+	<svelte:fragment slot="footer" >
+<div style="height: 16px;">
+
+</div>
+			<Button class="right-0 absolute m-4" style="right: 16px;"
+				color="red"
+				on:click={() => {
+					if (modalFn != null) {
+						modalFn();
+						modalMessage = null;
+						modalFn = null;
+					} else {
+						confirmDelete(selectedId);
+					}
+				}}>Confirm</Button
+			>
+	
 	</svelte:fragment>
 </Modal>
