@@ -41,6 +41,33 @@
 				);
 			}
 		);
+	}function setMonthlyPrice(data, checkPage, confirmModal) {
+		console.log(data);
+		console.log('transfer approved!');
+
+		confirmModal(
+			true,
+			`
+        <label class="my-4 text-sm font-medium block 
+        text-gray-900 dark:text-gray-300 space-y-2">
+        <span>Set Monthly Price</span>  <input name="shipping_ref" 
+        placeholder="" type="text" class="block w-75 disabled:cursor-not-allowed disabled:opacity-50 p-2.5 focus:border-primary-500 focus:ring-primary-500 dark:focus:border-primary-500 dark:focus:ring-primary-500 bg-gray-50 text-gray-900 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400 border-gray-300 dark:border-gray-500 text-sm rounded-lg"> </label>
+        <span class="">Are you sure to set this monthly price?</span>`,
+			() => {
+				var dom = document.querySelector("input[name='shipping_ref']");
+				postData(
+					{ scope: 'set_monthly_price', price_per_tonne: dom.value, commodity_id: data.id },
+					{
+						endpoint: url + '/svt_api/webhook',
+						successCallback: () => {
+							alert("You will be redirect to adjustment result page")
+					
+							goto('/adjustments')
+						}
+					}
+				);
+			}
+		);
 	}
 </script>
 
@@ -51,7 +78,7 @@
 		search_queries: ['a.code|a.name'],
 		model: 'Commodity',
 		preloads: [],
-		buttons: [{ name: 'Set Daily Price', onclickFn: setDailyPrice }],
+		buttons: [{ name: 'Set Daily Price', onclickFn: setDailyPrice }, { name: 'Final Month Adjustment', onclickFn: setMonthlyPrice }],
 		customCols: [
 			{
 				title: 'General',

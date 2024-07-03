@@ -29,22 +29,7 @@
 		}
 		return bool;
 	}
-	function doMarkPendingDelivery(data, checkPage, confirmModal) {
-		console.log(data);
-		console.log('transfer approved!');
-
-		confirmModal(true, 'Are you sure to mark this order as pending delivery?', () => {
-			postData(
-				{ scope: 'mark_do', id: data.id, status: 'pending_delivery' },
-				{
-					endpoint: url + '/svt_api/webhook',
-					successCallback: () => {
-						checkPage();
-					}
-				}
-			);
-		});
-	}
+	
 	function issueBOP(data, checkPage, confirmModal) {
 		console.log(data);
 		console.log('transfer approved!');

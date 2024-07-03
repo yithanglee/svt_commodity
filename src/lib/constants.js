@@ -19,4 +19,5 @@ export const MENUS = [
     { path: '/trade_costs', title: 'Trade Costs', icon: 'book-solid' },
 
     { path: '/payments', title: 'Payments', icon: 'book-solid' },
+    { path: '/adjustments', title: 'Adjustments', icon: 'book-solid' },
 ];

@@ -34,7 +34,7 @@
 <div class="flex sm:grid grid-cols-12 flex-col-reverse">
 	<div class="col-span-8 sm:col-span-9 mx-4 p-4">
 		<Datatable
-			data={{
+			data={{canDelete: true ,
 				appendQueries: { transaction_id: data.id },
 				inputs: inputs,
 				join_statements: JSON.stringify([
@@ -47,7 +47,7 @@
 				customCols: [
 					{
 						title: 'General',
-						list: ['id', 'remarks', 'cost_type']
+						list: ['id', 'remarks', 'cost_type', 'amount']
 					}
 				],
 				buttons: [],
