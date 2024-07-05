@@ -10,6 +10,7 @@
 	/** @type {import('./$types').PageData} */
 	export let data;
 	import { PHX_HTTP_PROTOCOL, PHX_ENDPOINT } from '$lib/constants';
+	var url = PHX_HTTP_PROTOCOL + PHX_ENDPOINT;
 
 	import { isTableReloaded } from '$lib/stores/reloadTable';
 	let fullname,
@@ -139,6 +140,7 @@
 				],
 				columns: [
 					{ label: 'ID', data: 'id' },
+					{ label: 'Ref', data: 'ref_no' },
 					{ label: 'Year', data: 'year' },
 					{ label: 'Month', data: 'month' },
 
